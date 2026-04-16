@@ -6,10 +6,14 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
+    "typecheck": "tsc --noEmit",
     "start": "node dist/server.js",
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\" --fix",
-    "format": "prettier \"src/**/*.ts\" --write"
+    "format": "prettier \"src/**/*.ts\" --write",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "scan:secrets": "secretlint \"**/*\"",
+    "validate": "npm run typecheck && npm run lint && npm run format:check && npm run scan:secrets"
   },
   "keywords": [],
   "author": "",
@@ -21,18 +25,25 @@
     "express-rate-limit": "^8.3.2",
     "helmet": "^8.1.0",
     "mongoose": "^9.4.1",
-    "morgan": "^1.10.1"
+    "pino": "^10.3.1",
+    "pino-http": "^11.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@secretlint/secretlint-rule-preset-recommend": "^11.7.1",
     "@types/cors": "^2.8.19",
     "@types/express": "^4.17.21",
-    "@types/morgan": "^1.9.10",
     "@types/node": "^20.11.30",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "eslint": "^10.2.0",
     "eslint-config-prettier": "^9.1.0",
     "globals": "^17.5.0",
     "prettier": "^3.3.3",
+    "secretlint": "^11.7.1",
     "tsx": "^4.19.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.8.0"

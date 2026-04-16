@@ -12,10 +12,6 @@ export default defineConfig([
         ...globals.node
       }
     },
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      prettier
-    ]
+    extends: [js.configs.recommended, ...tseslint.configs.recommended, prettier]
   }
 ])
