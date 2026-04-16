@@ -9,7 +9,7 @@ export default rateLimit({
   legacyHeaders: false,
   skip: (req) => {
     return (
-      req.path.startsWith('/api/v1/health') ||
+      req.path.startsWith(`${ROUTES.API_BASE}${ROUTES.HEALTH}`) ||
       req.path.startsWith(ROUTES.DOCS) ||
       req.path === ROUTES.DOCS_JSON
     )

@@ -6,10 +6,11 @@ export const DEFAULT_SERVER_HOST = '0.0.0.0'
 export const ROUTES = {
   ROOT: '/',
   API_BASE: '/api/v1',
-  AUTH_BASE: '/api/v1/auth',
+  AUTH_BASE: '/auth',
   DOCS: '/api-docs',
   DOCS_JSON: '/api-docs.json',
-  HEALTH: '/api/v1/health',
-  HEALTH_LIVE: '/api/v1/health/live',
-  HEALTH_READY: '/api/v1/health/ready'
+  HEALTH: '/health',
+  HEALTH_LIVE: '/health/live',
+  HEALTH_READY: '/health/ready',
+  PING: '/ping'
 } as const

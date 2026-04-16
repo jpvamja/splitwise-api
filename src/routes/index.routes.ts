@@ -9,7 +9,7 @@ import authRouter from './auth.routes'
 
 const router = Router()
 
-router.use(ROUTES.AUTH_BASE.replace(ROUTES.API_BASE, ''), authRouter)
+router.use(ROUTES.AUTH_BASE, authRouter)
 
 const mongoConnectionStateMap: Record<number, string> = {
   0: 'disconnected',
@@ -71,7 +71,7 @@ router.get(
  *                   example: 2026-04-16T12:00:00.000Z
  */
 router.get(
-  ROUTES.HEALTH.replace(ROUTES.API_BASE, ''),
+  ROUTES.HEALTH,
   asyncHandler(async (_req, res) => {
     res.status(200).json(
       new ApiResponse(200, {
@@ -100,7 +100,7 @@ router.get(
  *         description: Service process is alive
  */
 router.get(
-  ROUTES.HEALTH_LIVE.replace(ROUTES.API_BASE, ''),
+  ROUTES.HEALTH_LIVE,
   asyncHandler(async (_req, res) => {
     res.status(200).json(
       new ApiResponse(200, {
@@ -129,7 +129,7 @@ router.get(
  *         description: Pong response
  */
 router.get(
-  '/ping',
+  ROUTES.PING,
   validateRequest({ query: pingQuerySchema }),
   asyncHandler(async (req, res) => {
     const message =
@@ -157,7 +157,7 @@ router.get(
  *         description: Service is not ready
  */
 router.get(
-  ROUTES.HEALTH_READY.replace(ROUTES.API_BASE, ''),
+  ROUTES.HEALTH_READY,
   asyncHandler(async (_req, res) => {
     const connectionState = mongoose.connection.readyState
     const databaseStatus = mongoConnectionStateMap[connectionState] || 'unknown'

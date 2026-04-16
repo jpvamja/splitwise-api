@@ -43,7 +43,7 @@ app.get(ROUTES.ROOT, (_req, res) => {
       200,
       {
         docs: ROUTES.DOCS,
-        health: ROUTES.HEALTH
+        health: `${ROUTES.API_BASE}${ROUTES.HEALTH}`
       },
       `${APP_NAME} is running`
     )

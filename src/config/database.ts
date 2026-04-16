@@ -2,8 +2,18 @@ import mongoose from 'mongoose'
 import ENV from './env'
 import logger from './logger'
 
-const sanitizeMongoUri = (uri: string) =>
-  uri.replace(/:\/\/([^@]+)@/, '://***:***@')
+const sanitizeMongoUri = (uri: string) => {
+  const credentialsMatch = /:\/\/[^@]+@/.exec(uri)
+
+  if (!credentialsMatch?.[0]) {
+    return uri
+  }
+
+  const startIndex = credentialsMatch.index
+  const endIndex = startIndex + credentialsMatch[0].length
+
+  return `${uri.slice(0, startIndex)}://***:***@${uri.slice(endIndex)}`
+}
 
 const connectDb = async () => {
   try {
