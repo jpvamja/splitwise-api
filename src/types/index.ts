@@ -10,3 +10,14 @@ export type {
   ValidationIssue,
   ValidationSchemaShape
 } from './validation.types'
+export type {
+  AccessTokenPayload,
+  AuthTokens,
+  ChangePasswordInput,
+  LoginInput,
+  PublicUser,
+  RefreshTokenInput,
+  RefreshTokenPayload,
+  RegisterInput,
+  UpdateMeInput
+} from './auth.types'

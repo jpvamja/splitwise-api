@@ -17,13 +17,13 @@ Status legend:
 
 ## 1. Auth
 
-- [ ] POST /api/v1/auth/register
-- [ ] POST /api/v1/auth/login
-- [ ] POST /api/v1/auth/refresh-token
-- [ ] POST /api/v1/auth/logout
-- [ ] GET /api/v1/auth/me
-- [ ] PATCH /api/v1/auth/me
-- [ ] PATCH /api/v1/auth/change-password
+- [x] POST /api/v1/auth/register
+- [x] POST /api/v1/auth/login
+- [x] POST /api/v1/auth/refresh-token
+- [x] POST /api/v1/auth/logout
+- [x] GET /api/v1/auth/me
+- [x] PATCH /api/v1/auth/me
+- [x] PATCH /api/v1/auth/change-password
 
 ## 2. Users and Friends
 

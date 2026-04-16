@@ -6,6 +6,7 @@ export const DEFAULT_SERVER_HOST = '0.0.0.0'
 export const ROUTES = {
   ROOT: '/',
   API_BASE: '/api/v1',
+  AUTH_BASE: '/api/v1/auth',
   DOCS: '/api-docs',
   DOCS_JSON: '/api-docs.json',
   HEALTH: '/api/v1/health',

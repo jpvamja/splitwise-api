@@ -69,6 +69,13 @@ npm run validate
 - GET /api/v1/health -> Process + runtime health info
 - GET /api/v1/health/live -> Liveness probe
 - GET /api/v1/health/ready -> Readiness probe (DB state)
+- POST /api/v1/auth/register -> Register user
+- POST /api/v1/auth/login -> Login user
+- POST /api/v1/auth/refresh-token -> Refresh JWT tokens
+- POST /api/v1/auth/logout -> Logout current user
+- GET /api/v1/auth/me -> Get current profile
+- PATCH /api/v1/auth/me -> Update current profile
+- PATCH /api/v1/auth/change-password -> Change current password
 
 ## NPM Scripts
 

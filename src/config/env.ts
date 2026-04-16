@@ -55,9 +55,21 @@ const RATE_LIMIT_MAX = toNumber(
   process.env.RATE_LIMIT_MAX,
   ENV_DEFAULTS.RATE_LIMIT_MAX
 )
+const BCRYPT_SALT_ROUNDS = toNumber(
+  process.env.BCRYPT_SALT_ROUNDS,
+  ENV_DEFAULTS.BCRYPT_SALT_ROUNDS
+)
 const NODE_ENV = parseNodeEnv(process.env.NODE_ENV)
 const LOG_LEVEL = parseLogLevel(process.env.LOG_LEVEL)
 const TRUST_PROXY = toBoolean(process.env.TRUST_PROXY, ENV_DEFAULTS.TRUST_PROXY)
+const JWT_ACCESS_SECRET =
+  process.env.JWT_ACCESS_SECRET || ENV_DEFAULTS.JWT_ACCESS_SECRET
+const JWT_REFRESH_SECRET =
+  process.env.JWT_REFRESH_SECRET || ENV_DEFAULTS.JWT_REFRESH_SECRET
+const JWT_ACCESS_EXPIRES_IN =
+  process.env.JWT_ACCESS_EXPIRES_IN || ENV_DEFAULTS.JWT_ACCESS_EXPIRES_IN
+const JWT_REFRESH_EXPIRES_IN =
+  process.env.JWT_REFRESH_EXPIRES_IN || ENV_DEFAULTS.JWT_REFRESH_EXPIRES_IN
 
 if (!Number.isInteger(PORT) || PORT <= 0) {
   throw new Error('PORT must be a valid positive integer')
@@ -71,11 +83,20 @@ if (!Number.isInteger(RATE_LIMIT_MAX) || RATE_LIMIT_MAX <= 0) {
   throw new Error('RATE_LIMIT_MAX must be a valid positive integer')
 }
 
+if (!Number.isInteger(BCRYPT_SALT_ROUNDS) || BCRYPT_SALT_ROUNDS <= 0) {
+  throw new Error('BCRYPT_SALT_ROUNDS must be a valid positive integer')
+}
+
 const ENV: EnvConfig = {
   PORT,
   NODE_ENV,
   MONGO_URI: process.env.MONGO_URI || ENV_DEFAULTS.MONGO_URI,
   LOG_LEVEL,
+  JWT_ACCESS_SECRET,
+  JWT_REFRESH_SECRET,
+  JWT_ACCESS_EXPIRES_IN,
+  JWT_REFRESH_EXPIRES_IN,
+  BCRYPT_SALT_ROUNDS,
   SWAGGER_SERVER_URL: process.env.SWAGGER_SERVER_URL,
   CORS_ORIGIN: process.env.CORS_ORIGIN || ENV_DEFAULTS.CORS_ORIGIN,
   TRUST_PROXY,

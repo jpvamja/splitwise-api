@@ -18,6 +18,15 @@ const options: swaggerJsdoc.Options = {
       version: API_VERSION,
       description: 'API documentation for Splitwise backend'
     },
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT'
+        }
+      }
+    },
     servers: [{ url: serverUrl }]
   },
   apis: routeGlobs

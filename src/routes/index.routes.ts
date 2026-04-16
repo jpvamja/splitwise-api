@@ -5,8 +5,11 @@ import { ApiResponse, asyncHandler } from '../utils'
 import validateRequest from '../middleware/validateRequest'
 import { pingQuerySchema } from '../validations'
 import { API_VERSION, APP_NAME, APP_SLUG, ROUTES } from '../constants'
+import authRouter from './auth.routes'
 
 const router = Router()
+
+router.use(ROUTES.AUTH_BASE.replace(ROUTES.API_BASE, ''), authRouter)
 
 const mongoConnectionStateMap: Record<number, string> = {
   0: 'disconnected',
